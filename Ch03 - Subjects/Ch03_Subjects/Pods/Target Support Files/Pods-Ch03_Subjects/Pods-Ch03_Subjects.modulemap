@@ -1,0 +1,6 @@
+framework module Pods_Ch03_Subjects {
+  umbrella header "Pods-Ch03_Subjects-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -21,6 +21,32 @@ example(of: "never") {
       }
     )
     .disposed(by: disposeBag)
+    
+    // debug 연산자를 사용하면 해당 Observable이 emit하는 모든 event를 볼 수 있다.
+    // 또한 identifier String을 설정할 수 있어서 여러 Observable을 구분하기 좋다.
+    observable
+        .debug("Hellof", trimOutput: true)
+        .subscribe(
+            onCompleted: {
+                print("Completed!!")
+            }
+        ).disposed(by: disposeBag)
+}
+
+example(of: "of") {
+    let observable = Observable<Int>.of(1,2,3)
+    let disposeBag = DisposeBag()
+    
+    observable
+        .debug("of Debug", trimOutput: true)
+        .subscribe(
+            onNext: { element in
+                print(element)
+            },
+            onCompleted: {
+                print("Completed~!")
+            }
+        ).disposed(by: disposeBag)
 }
 
 /// Copyright (c) 2020 Razeware LLC

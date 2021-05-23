@@ -2,21 +2,44 @@ import Foundation
 import RxSwift
 
 example(of: "never") {
-  let observable = Observable<Any>.never()
+    
+    let disposeBag = DisposeBag()
+    
+    let observable = Observable<Any>.never()
   
-  observable
-    .subscribe(
-      onNext: { element in
-        print(element)
-      },
-      onCompleted: {
-        print("Completed")
-      },
-      onDisposed: {
-        print("Disposed")
-      }
-    )
+    observable
+        .do(onSubscribed: {
+            print("Subscribed")
+        })
+        .subscribe(
+            onNext: { element in
+                print(element)
+            },
+            onCompleted: {
+                print("Completed")
+            },
+            onDisposed: {
+                print("Never이지만 DisposeBag에 추가하면 출력도 할 수 있다.")
+                print("Disposed")
+            }
+        ).disposed(by: disposeBag)
+    
+    let observable2 = Observable<Int>.of(1,2,3)
+    observable2
+        .do(onSubscribed: {
+            print("I am onSubscribed")
+        })
+        .subscribe(
+            onNext: { element in
+                print(element)
+            },
+            onDisposed: {
+                print("Disposed!!!")
+            }
+        ).disposed(by: disposeBag)
 }
+
+
 
 /// Copyright (c) 2020 Razeware LLC
 ///
