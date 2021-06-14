@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-Filtering_Operators/Pods-Filtering_Operators-frameworks.sh
+${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework
+${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework

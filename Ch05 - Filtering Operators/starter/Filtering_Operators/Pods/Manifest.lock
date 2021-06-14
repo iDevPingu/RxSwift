@@ -1,0 +1,21 @@
+PODS:
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
+
+DEPENDENCIES:
+  - RxRelay (= 5.1.1)
+  - RxSwift (= 5.1.1)
+
+SPEC REPOS:
+  trunk:
+    - RxRelay
+    - RxSwift
+
+SPEC CHECKSUMS:
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+
+PODFILE CHECKSUM: 5d7ce9008b26b13bc1ad78d8d1d717c26d74b2ed
+
+COCOAPODS: 1.10.1
